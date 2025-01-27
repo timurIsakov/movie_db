@@ -30,61 +30,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 15,
                   ),
-                  Text(
-                    'Войти в свою учётную запись',
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Чтобы пользоваться правкой и возможностями рейтинга TMDB, а также получить персональные рекомендации, необходимо войти в свою учётную запись. Если у вас нет учётной записи, её регистрация является бесплатной и простой. Нажмите здесь, чтобы начать.',
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Если Вы зарегистрировались, но не получили письмо для подтверждения, нажмите здесь , чтобы отправить письмо повторно.',
-                  ),
+                  _InfoWidget(),
                   SizedBox(
                     height: 30,
                   ),
-                  Text(
-                    'Имя пользователя',
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  SizedBox(
-                    height: 36,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        isDense: true,
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Пароль',
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  SizedBox(
-                    height: 36,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        isDense: true,
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                      ),
-                    ),
-                  ),
+                  _InputFormWidget(),
                   SizedBox(
                     height: 30,
                   ),
@@ -122,6 +72,92 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _InfoWidget extends StatelessWidget {
+  const _InfoWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Войти в свою учётную запись',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          'Чтобы пользоваться правкой и возможностями рейтинга TMDB, а также получить персональные рекомендации, необходимо войти в свою учётную запись. Если у вас нет учётной записи, её регистрация является бесплатной и простой. Нажмите здесь, чтобы начать.',
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          'Если Вы зарегистрировались, но не получили письмо для подтверждения, нажмите здесь , чтобы отправить письмо повторно.',
+        ),
+      ],
+    );
+  }
+}
+
+class _InputFormWidget extends StatefulWidget {
+  const _InputFormWidget();
+
+  @override
+  State<_InputFormWidget> createState() => __InputFormWidgetState();
+}
+
+class __InputFormWidgetState extends State<_InputFormWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Имя пользователя',
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        SizedBox(
+          height: 36,
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              isDense: true,
+              contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          'Пароль',
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        SizedBox(
+          height: 36,
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              isDense: true,
+              contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
