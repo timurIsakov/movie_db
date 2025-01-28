@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../screens/login_screen.dart';
+import '../screens/main_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -13,10 +13,15 @@ class App extends StatelessWidget {
       builder: (_, child) => MaterialApp(
         theme: ThemeData(
           colorSchemeSeed: Color(0xff032541),
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            backgroundColor: Color(0xff032541),
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey,
+          ),
           useMaterial3: false,
         ),
         debugShowCheckedModeBanner: false,
-        home: const LoginScreen(),
+        home: const MainScreen(),
       ),
     );
   }
