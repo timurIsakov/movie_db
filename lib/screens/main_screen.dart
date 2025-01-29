@@ -18,6 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   int currentScreen = 0;
 
   void changeScreen(int index) {
+    if (currentScreen == index) return;
     setState(() {
       currentScreen = index;
     });
@@ -28,7 +29,9 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: HeaderBarWidget(
         onTapMenu: () {},
-        onTapUser: () {},
+        onTapUser: () {
+          Navigator.pushNamed(context, '/login');
+        },
         onTapSearch: () {},
       ),
       body: Center(child: screens[currentScreen]),

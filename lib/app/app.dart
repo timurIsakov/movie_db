@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_db/screens/login_screen.dart';
 
 import '../screens/main_screen.dart';
 
@@ -21,7 +22,11 @@ class App extends StatelessWidget {
           useMaterial3: false,
         ),
         debugShowCheckedModeBanner: false,
-        home: const MainScreen(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => MainScreen(),
+          '/login': (context) => LoginScreen(),
+        },
       ),
     );
   }
