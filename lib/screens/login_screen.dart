@@ -11,6 +11,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _nameEditingController =
+      TextEditingController(text: 'admin');
+  final TextEditingController _passwordEditingController =
+      TextEditingController(text: 'admin');
+
   @override
   Widget build(BuildContext context) {
     return KeyboardDismisser(
@@ -34,7 +39,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 30,
                   ),
-                  _InputFormWidget(),
+                  _InputFormWidget(
+                    nameController: _nameEditingController,
+                    passwordController: _passwordEditingController,
+                  ),
                   SizedBox(
                     height: 30,
                   ),
@@ -42,7 +50,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (_nameEditingController.text == 'admin' &&
+                              _passwordEditingController.text == 'admin') {
+                            Navigator.pushNamed(
+                              context,
+                              '/main',
+                            );
+                          }
+                        },
                         style: ButtonStyle(
                             foregroundColor:
                                 WidgetStatePropertyAll(Colors.white),
@@ -110,7 +126,11 @@ class _InfoWidget extends StatelessWidget {
 }
 
 class _InputFormWidget extends StatefulWidget {
-  const _InputFormWidget();
+  final TextEditingController nameController;
+  final TextEditingController passwordController;
+
+  const _InputFormWidget(
+      {required this.nameController, required this.passwordController});
 
   @override
   State<_InputFormWidget> createState() => __InputFormWidgetState();
@@ -131,6 +151,7 @@ class __InputFormWidgetState extends State<_InputFormWidget> {
         SizedBox(
           height: 36,
           child: TextField(
+            controller: widget.nameController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               isDense: true,
@@ -150,6 +171,8 @@ class __InputFormWidgetState extends State<_InputFormWidget> {
         SizedBox(
           height: 36,
           child: TextField(
+            controller: widget.passwordController,
+            obscureText: true,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               isDense: true,

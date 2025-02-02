@@ -22,10 +22,11 @@ class App extends StatelessWidget {
           useMaterial3: false,
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/login',
         routes: {
           '/': (context) => MainScreen(),
           '/login': (context) => LoginScreen(),
+          '/main': (context) => MainScreen(),
         },
       ),
     );

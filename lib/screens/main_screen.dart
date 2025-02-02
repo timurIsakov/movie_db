@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/header_bar_widget.dart';
+import 'popular_movies_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final List<Widget> screens = [
     Text('Main'),
-    Text('Movie'),
+    PopularMoviesScreen(),
     Text('TV'),
   ];
   int currentScreen = 0;
