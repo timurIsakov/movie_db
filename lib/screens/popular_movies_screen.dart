@@ -9,8 +9,11 @@ class PopularMoviesScreen extends StatelessWidget {
     return Scaffold(
       body: ListView.builder(
         itemCount: 10,
+        itemExtent: 163,
         itemBuilder: (context, index) {
-          return MovieCardWidget();
+          return MovieCardWidget(
+            onTap: () {},
+          );
         },
       ),
     );
