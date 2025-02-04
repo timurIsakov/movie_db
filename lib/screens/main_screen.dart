@@ -11,11 +11,6 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final List<Widget> screens = [
-    Text('Main'),
-    PopularMoviesScreen(),
-    Text('TV'),
-  ];
   int currentScreen = 0;
 
   void changeScreen(int index) {
@@ -35,7 +30,16 @@ class _MainScreenState extends State<MainScreen> {
         },
         onTapSearch: () {},
       ),
-      body: Center(child: screens[currentScreen]),
+      body: Center(
+        child: IndexedStack(
+          index: currentScreen,
+          children: [
+            Text('Main'),
+            PopularMoviesScreen(),
+            Text('TV'),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentScreen,
         onTap: changeScreen,
