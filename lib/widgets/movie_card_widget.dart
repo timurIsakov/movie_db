@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-
-import '../utils/assets.dart';
+import 'package:movie_db/entities/movie_entity.dart';
 
 class MovieCardWidget extends StatelessWidget {
+  final MovieEntity movieEntity;
   final Function() onTap;
-  const MovieCardWidget({super.key, required this.onTap});
+  const MovieCardWidget(
+      {super.key, required this.onTap, required this.movieEntity});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class MovieCardWidget extends StatelessWidget {
               children: [
                 Image(
                   image: AssetImage(
-                    Assets.tSonicImage,
+                    movieEntity.image,
                   ),
                   height: 141,
                 ),
@@ -43,7 +44,7 @@ class MovieCardWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Соник 3 в Кино',
+                          movieEntity.title,
                           maxLines: 2,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -53,7 +54,7 @@ class MovieCardWidget extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          '19 декабря 2024',
+                          movieEntity.date,
                           maxLines: 2,
                           style: TextStyle(
                             color: Colors.grey,
@@ -63,7 +64,7 @@ class MovieCardWidget extends StatelessWidget {
                           height: 15,
                         ),
                         Text(
-                          'Соник, Наклз и Тейлз воссоединяются против нового могущественного противника, Ежа Шэдоу, таинственного злодея с силами, не похожими ни на что, с чем они сталкивались раньше. Команда Соника вынуждена создать неожиданный союз в надежде остановить Шэдоу и защитить планету.',
+                          movieEntity.description,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
