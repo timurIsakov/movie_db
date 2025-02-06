@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
         child: IndexedStack(
           index: currentScreen,
           children: [
-            Text('Main'),
+            Text('TV'),
             PopularMoviesScreen(),
             Text('TV'),
           ],
