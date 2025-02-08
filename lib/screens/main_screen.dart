@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_db/widgets/percent_rating_widget.dart';
 
 import '../widgets/header_bar_widget.dart';
 import 'popular_movies_screen.dart';
@@ -34,7 +35,13 @@ class _MainScreenState extends State<MainScreen> {
         child: IndexedStack(
           index: currentScreen,
           children: [
-            Text('TV'),
+            PercentRatingWidget(
+              percent: 1,
+              backgroundColor: Colors.black,
+              mainArcColor: Colors.green,
+              spaceArcColor: Colors.yellow,
+              diameter: 50,
+            ),
             PopularMoviesScreen(),
             Text('TV'),
           ],
